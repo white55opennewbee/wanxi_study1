@@ -1,0 +1,33 @@
+body>div{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.companyContent {
+    display: flex;
+    flex-direction: column;
+}
+.companyContent>div:last-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.companyContent>div:last-child>div{
+    margin-left: 20px;
+}
+
+.companyContent > div {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+.companyContent>div:not(:last-child){
+    font-size: 30px;
+    font-family: 楷体;
+}
+
+input{
+    height: 30px;
+    background-color: rgba(255,255,255,0.3);
+}

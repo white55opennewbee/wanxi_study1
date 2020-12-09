@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../css/aboutus.css">
+    <link rel="stylesheet" href="../css/production.css">
+    <meta charset="UTF-8">
+    <title>产品中心</title>
+    <script src="../js/jquery.min.js"></script>
+</head>
+<body>
+<div>
+    <div style="width: 100%;height: 130px;">
+        <object id="head" style="border:0px" type="text/x-scriptlet" data="nav.html" width=100% height=130px>
+        </object>
+    </div>
+    <div class="bg" style="position: relative;top: -30px;margin: 0 auto;z-index: -1">
+        <div style="position: relative;top:20%;left:75%">
+            <span style="font-size: 25px;color: white;">&nbsp;&nbsp;&nbsp;产品中心</span><br>
+            <span style="font-size: 25px;color: white;">PRODUCT</span>
+        </div>
+    </div>
+
+    <div style="position:relative;padding-top: 20px;padding-left:20%;">
+        <span style="color: #0accce">当前位置: 网站首页 | 产品中心</span><br>
+        <span>-------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+    </div>
+
+    <div id="allTypes"
+         style="position: relative;left:20%;top: 30px;width: 600px;height: 30px;background-color: #07192f">
+
+    </div>
+
+    <div style="width: 1200px;height: 600px;position: relative;top: 50px;left: 17%">
+        <ul style="margin: 0px" id="productionList">
+
+        </ul>
+
+
+    </div>
+    <div id="bootbar" style="clear: both;height: 25px;text-align: center; position: relative;margin-top: 100px; bottom: auto; width: 100%;">
+
+    </div>
+
+</div>
+
+<object id="foot" style="border:0px" type="text/x-scriptlet" data="foot.html" width=100% height=130px>
+</object>
+</body>
+
+<script>
+    function typeSearch() {
+        $.ajax({
+            url: "/getproductiontypes",
+            method: "post",
+            success: function (data) {
+                console.log(data)
+                let ps = ""
+                // let ps = "<option>\n" +
+                //     "            全部\n" +
+                //     "        </option>"
+                for (let i = 0; i < data.length; i++) {
+                    ps += "<div style='position:relative;width: 100px;color: white;float: left;text-align: center'>" +
+                        "<label style='width:100px;margin: 0 auto'>" + data[i] + "</label>" +
+                        "</div>"
+                }
+                $("#allTypes").html(ps);
+            }
+        })
+    }
+
+    function init(data) {
+        var production = "";
+        for (var i = 0; i < data.length; i++) {
+            production += "<li class='production' style='vertical-align:top;width:260px;margin-right:10px;list-style:none;float: left'>"+
+            "<div style='margin-bottom: 8px;overflow: hidden;position: relative;height:200px;width:260px;text-align:center;vertical-align:middle;display:table-cell;'>"+
+                "<img src=\"../img/"+data[i].productionImgUrl+ "\" style='position: relative; max-width: 260px; margin: 0px auto; max-height: 200px; height: 200px; width: 260px; display: inline;'>"+
+                "</div>"+
+                "<div  style='padding: 0 3px 0 6px;height: 70px;'>"+
+                "<p style='position:relative;font: normal 100% 'Microsoft yahei', Arial, Verdana;margin:0 auto;'><a href='#'>"+data[i].productionName+"</a></p>"+
+            "<span style='margin: 0 auto;padding: 0;'><a href='#'>"+data[i].type+"</a></span>"+
+            "<div style='display: block;font-family: Microsoft YaHei;font-size: 13px;line-height: 136%;'>"+
+                "出口:"+data[i].exportPlace+"/n"+
+            "国内："+data[i].incountryPlace+"/n"+
+            "交货："+data[i].tradeTime +"</div>"+
+            "</div>"+
+            "</li>"
+        }
+        $("#productionList").html(production)
+    }
+
+
+    function send(currentpage) {
+        $.ajax({
+            url: "/product?currentPage="+currentpage,
+            method: "get",
+            success: function (data) {
+                data = JSON.parse(data)
+                console.log(data)
+                console.log(data.productions)
+                init(data.productions);
+            }
+        })
+    }
+
+    function getPage(type,maxsize) {
+        $.ajax({
+            url:"/getpage",
+            method:"get",
+            data:{"Pagetype":type},
+            success:function (data) {
+                console.log(maxsize)
+                let num = Math.ceil(data/maxsize);
+                console.log(num)
+                let ps = "";
+                for(let i = 0;i<num;i++){
+                    let j = i+1;
+                    ps+="<a id='pages' href='javascript:void(0);' onclick='send("+j+")'>"+j+"</a> &nbsp;"
+                }
+                $("#bootbar").html(ps)
+            }
+        })
+    }
+
+
+
+    getPage("production",8)
+    send(1)
+    typeSearch()
+</script>
+</html>

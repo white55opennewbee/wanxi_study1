@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../../js/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../../css/backCss/production/addProduction.css">
+    <script src="../../../js/back/productionJS/addProduction.js"></script>
+
+</head>
+<body>
+<div>
+    <div>
+    <div>
+        <div>商品名字:</div>
+        <div><input type="text" name="productionName" id="productionName" required="required"></div></div>
+    <div>
+        <div>商品价格:</div>
+        <div><input type="text" name="price" id="price" required="required"></div></div>
+    <div>
+        <div>商品类型:</div>
+        <div><input type="text" name="type" id="type" required="required"></div></div>
+    <div>
+        <div>商品型号:</div>
+        <div><input type="text" name="number" id="number" required="required"></div>
+        </div>
+    <div>
+        <div>商品图片:</div>
+        <div><img id="imgshow" width="50px" height="50px"></div>
+        <div>
+            <input id="photoFile" type="file" name="img" value="商品图片"  required="required" onchange="addimg()">
+        </div>
+    </div>
+    <div>
+        <div>商品出口:</div>
+        <div><input type="text" name="exportPlace" id="exportPlace" required="required"></div>
+    </div>
+    <div>
+        <div>商品国内发货:</div>
+        <div><input type="text" name="incountryPlace" id="incountryPlace" required="required"></div>
+    </div>
+    <div>
+        <div>商品交易时间:</div>
+        <div><input type="text" name="tradeTime" id="tradeTime" required="required"></div>
+    </div>
+    <div class="inputButton">
+        <div>
+            <input type="submit" onclick="add()">
+        </div>
+    </div>
+    </div>
+</div>
+</body>
+
+
+</html>

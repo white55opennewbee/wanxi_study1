@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻管理</title>
+
+    <script src="../../../js/jquery.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/back/newsJS/managerNews.js"></script>
+    <link rel="stylesheet" href="../../../css/backCss/news/managerNews.css">
+</head>
+<body>
+<div>
+    <div>
+        <div>
+            <div>新闻类型:</div>
+            <div><select id="newsType"></select></div>
+        </div>
+        <div>
+            <div>新闻标题:</div>
+            <div><input type="text" id="newsTitle"></div>
+        </div>
+        <div>
+            <div>起始时间:</div>
+            <div><input type="date" id="startTime"> - <input type="date" id="endTime"></div>
+        </div>
+        <div>
+            <input type="button" value="搜索" onclick="searchNews()">
+        </div>
+    </div>
+
+
+    <div class="newsContent">
+        <div class="newsContentTitle">
+            <div>ID</div>
+            <div>新闻类型</div>
+            <div>新闻标题</div>
+            <div>新闻内容</div>
+            <div></div>
+        </div>
+
+        <div>
+            <div class="topNewsTitle">置顶新闻:</div>
+            <div class="TopNewsContent">
+
+
+            </div>
+
+            <div class="OtherNewsTitle">其他新闻:</div>
+            <div class="OtherNewsContent">
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="bootbar">
+    </div>
+</div>
+</body>
+
+
+<script>
+    searchNews();
+    findAllTypes();
+    searchToTopNews();
+</script>
+</html>

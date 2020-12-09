@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>留言管理</title>
+
+    <script src="../../../js/jquery.js"></script>
+    <script src="../../../js/back/commonJS/MyAjax.js"></script>
+    <link rel="stylesheet" href="../../../css/backCss/comment/managerComment.css">
+    <script src="../../../js/back/commentJS/managerComment.js"></script>
+
+</head>
+<body>
+<div>
+    <div>
+        <div>
+            <div>姓名:</div>
+            <div><input type="text" id="name"></div>
+        </div>
+        <div>
+            <div>时间:</div>
+            <div><input type="date" id="startTime"> - <input type="date" id="endTime"></div>
+        </div>
+        <div><input type="button" onclick="searchComments();" value="查询"></div>
+    </div>
+    <div class="header">
+        <div>
+            姓名
+        </div>
+        <div>
+            E-mail
+        </div>
+        <div>
+            评论内容
+        </div>
+        <div>
+            评论时间
+        </div>
+        <div></div>
+    </div>
+    <div class="conContent">
+
+    </div>
+    <div id="bootbar">
+
+    </div>
+
+</div>
+</body>
+
+</html>

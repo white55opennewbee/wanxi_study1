@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公司信息管理</title>
+    <script src="../../../js/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../../css/backCss/company/managerCompany.css">
+    <script src="../../../js/back/companyJS/managerCompany.js"></script>
+
+</head>
+<body>
+<div>
+<div class="companyContent">
+    <div><div>公司名称:</div><div><input type="text" id="companyName" disabled="disabled"></div></div>
+    <div><div>公司口号:</div><div><input type="text" id="symbol" disabled="disabled"></div></div>
+    <div><div>公司图片:</div><div><img id="imgShow" src="" style="width: 50px;height: 50px"><input type="hidden" id="img" name="img" onchange="uploadimg()"></div></div>
+    <div><div>联系我们:</div><div><input type="text" id="callUsIntroduce" disabled="disabled"></div></div>
+    <div><div>关于我们:</div><div><input type="text" id="aboutUsIntroduce" disabled="disabled"></div></div>
+    <div>
+        <div><input type="button" value="编辑" id="edit" onclick="setEditable()"></div>
+        <div><input type="button" value="提交" id="put" onclick="uploadCompanyInfo()" disabled="disabled"></div>
+    </div>
+</div>
+</div>
+</body>
+
+</html>

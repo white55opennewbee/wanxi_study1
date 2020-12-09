@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../css/backCss/managerIndex.css">
+    <script src="../../js/back/managerIndex.js"></script>
+</head>
+
+<body>
+
+<div class="topCompanyNameShow">
+    老潘保健会所
+</div>
+
+<div>
+    <div>
+        <div class="outerManeger">
+            <div class="items" onclick="openMenus(this)">产品管理</div>
+            <div style="display: none;">
+                <div class="item" onclick="LoadContent('manageproduction.html')">
+                    产品查询及管理
+                </div>
+                <div class="item" onclick="LoadContent('addProduction.html')">
+                    新增产品
+                </div>
+            </div>
+        </div>
+        <div class="outerManeger">
+            <div class="items" onclick="openMenus(this)">留言管理</div>
+            <div style="display: none;">
+                <div class="item" onclick="LoadContent('managercomment.html')">
+                    留言查询及管理
+                </div>
+            </div>
+        </div>
+
+        <div class="outerManeger">
+            <div class="items" onclick="openMenus(this)">新闻管理</div>
+            <div style="display: none;">
+                <div class="item" onclick="LoadContent('managernews.html')">
+                    新闻查询及管理
+                </div>
+                <div class="item" onclick="LoadContent('addNews.html')">
+                    新增新闻
+                </div>
+            </div>
+        </div>
+
+
+        <div class="outerManeger">
+            <div class="items" onclick="openMenus(this)">公司管理</div>
+            <div style="display: none;">
+                <div class="item" onclick="LoadContent('managerCompany.html')">
+                    公司信息查询及管理
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="content">
+
+    </div>
+
+
+</div>
+
+</body>
+</html>

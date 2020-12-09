@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../../js/jquery.min.js"></script>
+    <script src="../../../js/back/productionJS/manageProduction.js"></script>
+    <link rel="stylesheet" href="../../../css/backCss/production/managerProduction.css">
+
+</head>
+
+<body>
+<div>
+    <div class="searchClass">
+        <div>商品类型:</div>
+        <select id="selection"></select>
+        <div>商品名称查询:</div>
+        <input type="text" id="searchByName">
+        <div>价格查询:</div>
+        <input type="number" placeholder="最底价格" id="lowestprice">-<input type="number" placeholder="最高价格" id="maxprice">
+        <input type="button" value="查询" onclick="productionSearch(8,1);">
+    </div>
+
+
+    <div>
+        <div>
+            <div class="headshow">
+                <div>商品ID</div>
+                <div>商品图片</div>
+                <div>商品名称</div>
+                <div>商品类型</div>
+                <div>商品价格</div>
+                <div>商品号</div>
+                <div>出口地点</div>
+                <div>国内发货时间</div>
+                <div>交易时间</div>
+            </div>
+            <div class="productions" id="product">
+<!--                <div>-->
+<!--                    <div>data[i].id</div>-->
+<!--                    <div><img height=\"100px\"></div>-->
+<!--                    <div>data[i].productionName</div>-->
+<!--                    <div>data[i].type</div>-->
+<!--                    <div> data[i].price</div>-->
+<!--                    <div> data[i].number</div>-->
+<!--                    <div> data[i].exportPlace</div>-->
+<!--                    <div> data[i].incountryPlace</div>-->
+<!--                    <div> data[i].tradeTime</div>-->
+<!--                    <div>-->
+<!--                        <input type="button" name=\"delete\" value='删除'>-->
+<!--                        <input type="button" name=\"update\" value='编辑'>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <div>data[i].id</div>-->
+<!--                    <div><img height=\"100px\"></div>-->
+<!--                    <div>data[i].productionName</div>-->
+<!--                    <div>data[i].type</div>-->
+<!--                    <div> data[i].price</div>-->
+<!--                    <div> data[i].number</div>-->
+<!--                    <div> data[i].exportPlace</div>-->
+<!--                    <div> data[i].incountryPlace</div>-->
+<!--                    <div> data[i].tradeTime</div>-->
+<!--                    <div>-->
+<!--                        <input type="button" name=\"delete\" value='删除'>-->
+<!--                        <input type="button" name=\"update\" value='编辑'>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="boot">
+        <div id="bootbar">
+
+        </div>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript">
+
+
+    typeSearch();
+    productionSearch(8, 1)
+</script>
+</html>

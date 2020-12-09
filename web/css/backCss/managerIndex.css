@@ -1,0 +1,75 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-image: url("../../img/indexBG01.jpg");
+    background-size: cover;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.items {
+    width: 250px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+    border-bottom: 1px solid #9B9B9B;
+}
+
+.items:hover {
+    color: #985f0d;
+}
+
+.item {
+    text-align: center;
+    width: 250px;
+    color: white;
+    font-family: 楷体;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.item:hover {
+    color: #985f0d;
+}
+
+.topCompanyNameShow {
+    height: 70px;
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+    color: #555555;
+    text-shadow: 0px 10px 8px #CDC673;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+    height: calc(100vh - 70px);
+    width: calc(100vw - 250px);
+    border-top: 1px solid #555555
+}
+
+.outerManeger {
+    justify-content: center;
+    border-bottom: 1px solid black
+}
+
+.topCompanyNameShow + div {
+    display: flex;
+}
+
+.topCompanyNameShow + div>div {
+    height: calc(100vh - 70px);
+    width: 250px;
+    float: left;
+    border-right: 1px solid #555555
+}

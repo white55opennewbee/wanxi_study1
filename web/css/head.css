@@ -1,0 +1,21 @@
+.setbg{
+    background-image: url("../img/logo_02_lftn.png");
+    width: 185px;
+    height: 122px;
+}
+a.ahover {
+    color: #333333;
+    text-align: center;
+    font-family: arial;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-family: Microsoft YaHei;
+    color: #0accce;
+    font-weight: normal;
+}
+
+.outcanvas{
+    margin: 0 auto;
+    width: 1200px;
+}
