@@ -1,16 +1,24 @@
-package example.pc.dao;
+package example.pc.dao.impl;
 
 import example.pc.Utils.ClassReflictionForDaoUtil;
 import example.pc.Utils.Jdbc_Utils;
+import example.pc.Utils.Mybatis_Utils;
+import example.pc.dao.IUserMapper;
 import example.pc.entity.User;
+import org.apache.ibatis.session.SqlSession;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-public class UserDao {
+/**
+ * @author pc
+ * @date 2020/12/10
+ *
+ */
+public class UserDao implements IUserMapper {
 
-
+    @Override
     public List<User> checkUser(String account,String password) {
         List<User> allEntity = null;
         String sql = "select * from user where account = ? and password = ?";
@@ -25,18 +33,8 @@ public class UserDao {
         return allEntity;
     }
 
-//    public List<User> getAllShowableUsers(){
-//        List<User> entities = ClassReflictionForDaoUtil.getEntities(User.class, Jdbc_Utils.getResultSet("select * from user where status = 1"));
-//        return entities;
-//    }
-//
-//
-//    public List<User> getAllUsers(){
-//        List<User> entities = ClassReflictionForDaoUtil.getEntities(User.class, Jdbc_Utils.getResultSet("select * from user"));
-//        return entities;
-//    }
 
-
+    @Override
     public void addUser(User user){
         String addSql = ClassReflictionForDaoUtil.insertSQL(user, "user");
         PreparedStatement preparedStatement = Jdbc_Utils.getPreparedStatement(addSql);
@@ -46,7 +44,7 @@ public class UserDao {
             e.printStackTrace();
         }
     }
-
+    @Override
     public void updateUser(User user){
         ClassReflictionForDaoUtil.updateSQL(user,"update");
         String update = ClassReflictionForDaoUtil.updateSQL(user, "update");
@@ -57,12 +55,21 @@ public class UserDao {
             e.printStackTrace();
         }
     }
-
+    @Override
     public void deleteUser(Integer id){
         User user = new User();
         user.setId(id);
         user.setStatus(0);
         updateUser(user);
+
+    }
+
+    @Override
+    public List<User> findAll() {
+        SqlSession sqlsession = Mybatis_Utils.getSqlsession();
+        IUserMapper mapper = sqlsession.getMapper(IUserMapper.class);
+        List<User> all = mapper.findAll();
+        return all;
     }
 
 }

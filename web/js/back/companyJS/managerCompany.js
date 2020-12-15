@@ -3,9 +3,6 @@ function uploadCompanyInfo() {
     console.log(imgUrl)
     let index = imgUrl.lastIndexOf("/")
     let imgName = imgUrl.substring(index+1)
-
-
-
     let json = {"companyName":$("#companyName").val(),"symbol":$("#symbol").val(),"callUsIntroduce":$("#callUsIntroduce").val(),"aboutUsIntroduce":$("#aboutUsIntroduce").val(),"imgUrl":imgName}
     console.log(json)
     $.ajax({
@@ -36,7 +33,7 @@ function init() {
             $("#symbol").val(result.symbol);
             $("#callUsIntroduce").val(result.callUsIntroduce);
             $("#aboutUsIntroduce").val(result.aboutUsIntroduce);
-            $("#imgShow").attr("src","/"+result.imgUrl);
+            $("#imgShow").attr("src","/img/"+result.imgUrl);
         }
     })
 }

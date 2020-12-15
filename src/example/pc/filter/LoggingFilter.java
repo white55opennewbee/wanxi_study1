@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebFilter(filterName = "logFilter",
-        urlPatterns = {"/back/*", "/html/backManager/*"}
+        urlPatterns = {"/ignore/back/*", "/ignore/html/backManager/*"}
 )
 public class LoggingFilter implements Filter {
     @Override

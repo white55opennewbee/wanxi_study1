@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../css/foot.css">
+    <link rel="stylesheet" href="../css/frontCss/foot.css">
     <meta charset="UTF-8">
     <title>foot</title>
     <script src="../js/jquery.min.js"></script>
+
+    <script src="../js/front/JS/foot.js"></script>
 </head>
 <body>
     <div class="fixed">
-        <span id="companyName" style="position:relative;top: 40%;padding-left:20%;color: rgb(169, 169, 171); font-size: 26px; font-family: Microsoft YaHei; line-height: 122%; ">
+        <span id="companyName" >
 
         </span>
-        <span id="companySymbol" style="position:relative;top:40%;padding-left:20%;font-size: 16px; line-height: 122%; color: rgb(169, 169, 171);">
+        <span id="companySymbol">
 
-            </span>
+        </span>
 
-        <div id="footImgs" style="position: relative;left: 70%;bottom: 30%">
+        <div id="footImgs">
 <!--            <img src="../img/wei2_03_aus0.png">-->
 <!--            <img src="../img/wei2_05_fc2e.png">-->
 <!--            <img src="../img/wei2_07_hodz.png">-->
@@ -25,30 +27,30 @@
 
     </div>
 </body>
-<script>
-    $.ajax({
-        url:"/foot",
-        method:"get",
-        success:function (result) {
-            console.log(result)
-            init(result.logos)
-            initCompany(result.name,result.symbol)
-        }
-    })
+<!--<script>-->
+<!--    $.ajax({-->
+<!--        url:"/foot",-->
+<!--        method:"get",-->
+<!--        success:function (result) {-->
+<!--            console.log(result)-->
+<!--            init(result.logos)-->
+<!--            initCompany(result.name,result.symbol)-->
+<!--        }-->
+<!--    })-->
 
-    function init(data) {
-       let ps = "";
-        for (let i = 0;i<data.length;i++){
-            ps+="<img src=\"../"+data[i].footImgurl+"\">"
-        }
-        $("#footImgs").html(ps)
-    }
+<!--    function init(data) {-->
+<!--       let ps = "";-->
+<!--        for (let i = 0;i<data.length;i++){-->
+<!--            ps+="<img src=\"../img/"+data[i].footImgurl+"\">"-->
+<!--        }-->
+<!--        $("#footImgs").html(ps)-->
+<!--    }-->
 
 
-    function initCompany(companyName,companySymbol) {
-        $("#companyName").html("<strong>"+companyName+"</strong><br>")
-        $("#companySymbol").html(companySymbol)
-    }
+<!--    function initCompany(companyName,companySymbol) {-->
+<!--        $("#companyName").html("<strong>"+companyName+"</strong><br>")-->
+<!--        $("#companySymbol").html(companySymbol)-->
+<!--    }-->
 
-</script>
+<!--</script>-->
 </html>

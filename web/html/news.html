@@ -1,113 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../css/aboutus.css">
+<!--    <link rel="stylesheet" href="../css/frontCss/aboutus.css">-->
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="../js/jquery.min.js"></script>
     <script src="../js/getPage.js"></script>
+    <script src="../js/front/JS/news.js"></script>
+    <link rel="stylesheet" href="../css/frontCss/news.css">
+
 </head>
+
 <body>
 <div>
     <div style="width: 100%;height: 130px;">
         <object id="head" style="border:0px" type="text/x-scriptlet" data="nav.html" width=100% height=130px>
         </object>
     </div>
-    <div class="bg" style="position: relative;top: -30px;margin: 0 auto;z-index: -1" >
-        <div style="position: relative;top:20%;left:75%" >
-            <span  style="font-size: 25px;color: white;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新闻中心</span><br>
-            <span style="font-size: 25px;color: white;">NEWS CENTER</span>
+    <div class="bg" >
+        <div >
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新闻中心</span><br>
+            <span>NEWS CENTER</span>
         </div>
     </div>
-    <div style="position:relative;padding-top: 20px;padding-left:20%;">
-        <span style="color: #0accce">当前位置: 网站首页 | 新闻中心</span><br>
+    <div class="tpk">
+        <span>当前位置: 网站首页 | 新闻中心</span><br>
         <span>-------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
     </div>
-    <div id="newsTypes" style="position: relative;left:20%;top: 30px;width: 300px;height: 30px;background-color: #07192f">
+    <div id="newsTypes">
 
     </div>
-    <div >
-        <ul id="newsUl" style="position: relative;margin: 50px auto;width: 1100px;height:600px;">
+    <div>
+        <ul id="newsUl">
 
         </ul>
 
     </div>
 
-    <div id="bootbar" style="margin-top: 0;text-align: center; position: absolute;  width: 100%;">
+    <div id="bootbar">
 
     </div>
 
 
 </div>
 
-<object id="foot" style="border:0px" type="text/x-scriptlet" data="foot.html" width=100% height=130px>
+<object id="bottom" style="border:0px" type="text/x-scriptlet" data="foot.html" width=100% height=130px>
 </object>
 </body>
-<script>
-var maxSize = 6;
-var currentPage = 1;
+<!--<script>-->
+<!--var maxSize = 6;-->
+<!--var currentPage = 1;-->
 
-    function send(){
-        let json = {"currentPage":currentPage,"maxSize":maxSize}
-        $.ajax({
-            url:"/news",
-            method:"post",
-            data:json,
-            dataType:"json",
-            success:function (result) {
-                console.log(result)
-                initNews(result.news)
-                initNewsTypes(result.newstypes)
-            }
-        })
-    }
+<!--    function send(){-->
+<!--        let json = {"currentPage":currentPage,"maxSize":maxSize}-->
+<!--        $.ajax({-->
+<!--            url:"/news",-->
+<!--            method:"post",-->
+<!--            data:json,-->
+<!--            dataType:"json",-->
+<!--            success:function (result) {-->
+<!--                console.log(result)-->
+<!--                initNews(result.news)-->
+<!--                initNewsTypes(result.newstypes)-->
+<!--            }-->
+<!--        })-->
+<!--    }-->
 
-    function changeCurrentPage(page) {
-        console.log(page)
-        alert(page)
-        currentPage = page
-        send()
-    }
+<!--    function changeCurrentPage(page) {-->
+<!--        console.log(page)-->
+<!--        alert(page)-->
+<!--        currentPage = page-->
+<!--        send()-->
+<!--    }-->
 
-    function initNewsTypes(data) {
-        let ps = "";
-        for (let i=0;i<data.length;i++){
-            ps+="<div style=\"position:relative;width: 100px;color: white;float: left;text-align: center\">\n" +
-                "            <label style=\"width:100px;margin: 0 auto;text-align: center\">"+data[i]+"</label>\n" +
-                "        </div>"
-        }
-        $("#newsTypes").html(ps)
-    }
-    function initNews(data){
-        let ps = ""
-        for(let i=0;i<data.length;i++){
-            let time = new Date(data[i].date)
-            ps+="<li style=\"list-style: none;border-bottom: 1px dotted #dbd4cd;\">\n" +
-                "                <div style=\"display: flex\">\n" +
-                "                    <div style=\"background-color: orangered;margin: 20px 5px;width: 60px;height: 60px;\">\n" +
-                "                        <span style=\"display:inline-block;line-height:41px;color:#fff;font-size:24px;margin: 0 auto;text-align:center;width: inherit;height: auto\">\n" +
-                "                            "+time.getDay()+"\n" +
-                "                        </span>\n" +
-                "                        <span style=\"color:#fff;font-size:13px;display:block;height: 18px;line-height: 18px;text-align: center \">\n" +
-                "                            "+time.getFullYear()+"-"+time.getMonth()+"\n" +
-                "                        </span>\n" +
-                "                    </div>\n" +
-                "                    <div style=\"margin-left: 20px\" >\n" +
-                "                        <p style=\"display: inline-block;font-family: Microsoft YaHei;font-size: 14px;color: #000000;font-weight: bold;text-decoration: none;line-height: 140%;\">\n" +
-                "                            "+data[i].title+"\n" +
-                "                        </p>\n" +
-                "                        <p style=\"line-height: 120%;margin-top:0;display: inline-block;font-family: Microsoft YaHei;font-size: 12px;color: #666666;font-weight: normal;text-decoration: none;text-align: justify;width: 99%;overflow: hidden;\">\n" +
-                "                           "+ data[i].body+"\n" +
-                "                        </p>\n" +
-                "                    </div>\n" +
-                "                </div>\n" +
-                "            </li>"
-        }
-        $("#newsUl").html(ps)
-    }
+<!--    function initNewsTypes(data) {-->
+<!--        let ps = "";-->
+<!--        for (let i=0;i<data.length;i++){-->
+<!--            ps+="<div style=\"position:relative;width: 100px;color: white;float: left;text-align: center\">\n" +-->
+<!--                "            <label style=\"width:100px;margin: 0 auto;text-align: center\">"+data[i]+"</label>\n" +-->
+<!--                "        </div>"-->
+<!--        }-->
+<!--        $("#newsTypes").html(ps)-->
+<!--    }-->
+<!--    function initNews(data){-->
+<!--        let ps = ""-->
+<!--        for(let i=0;i<data.length;i++){-->
+<!--            let time = new Date(data[i].date)-->
+<!--            ps+="<li style=\"list-style: none;border-bottom: 1px dotted #dbd4cd;\">\n" +-->
+<!--                "                <div style=\"display: flex\">\n" +-->
+<!--                "                    <div style=\"background-color: orangered;margin: 20px 5px;width: 60px;height: 60px;\">\n" +-->
+<!--                "                        <span style=\"display:inline-block;line-height:41px;color:#fff;font-size:24px;margin: 0 auto;text-align:center;width: inherit;height: auto\">\n" +-->
+<!--                "                            "+time.getDay()+"\n" +-->
+<!--                "                        </span>\n" +-->
+<!--                "                        <span style=\"color:#fff;font-size:13px;display:block;height: 18px;line-height: 18px;text-align: center \">\n" +-->
+<!--                "                            "+time.getFullYear()+"-"+time.getMonth()+"\n" +-->
+<!--                "                        </span>\n" +-->
+<!--                "                    </div>\n" +-->
+<!--                "                    <div style=\"margin-left: 20px\" >\n" +-->
+<!--                "                        <p style=\"display: inline-block;font-family: Microsoft YaHei;font-size: 14px;color: #000000;font-weight: bold;text-decoration: none;line-height: 140%;\">\n" +-->
+<!--                "                            "+data[i].title+"\n" +-->
+<!--                "                        </p>\n" +-->
+<!--                "                        <p style=\"line-height: 120%;margin-top:0;display: inline-block;font-family: Microsoft YaHei;font-size: 12px;color: #666666;font-weight: normal;text-decoration: none;text-align: justify;width: 99%;overflow: hidden;\">\n" +-->
+<!--                "                           "+ data[i].body+"\n" +-->
+<!--                "                        </p>\n" +-->
+<!--                "                    </div>\n" +-->
+<!--                "                </div>\n" +-->
+<!--                "            </li>"-->
+<!--        }-->
+<!--        $("#newsUl").html(ps)-->
+<!--    }-->
 
 
-send()
-getPage("news",maxSize)
-</script>
+<!--send()-->
+<!--getPage("news",maxSize)-->
+<!--</script>-->
 </html>

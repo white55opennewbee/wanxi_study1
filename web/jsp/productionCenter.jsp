@@ -9,8 +9,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../css/aboutus.css">
-    <link rel="stylesheet" href="../css/production.css">
+    <link rel="stylesheet" href="../css/frontCss/aboutus.css">
+    <link rel="stylesheet" href="../css/frontCss/production.css">
     <meta charset="UTF-8">
     <title>产品中心</title>
 </head>

@@ -1,12 +1,16 @@
 package example.pc.service.serviceImpl;
 
-import example.pc.dao.UserDao;
+import example.pc.Utils.Mybatis_Utils;
+import example.pc.dao.impl.UserDao;
+import example.pc.dao.IUserMapper;
 import example.pc.entity.User;
 import example.pc.service.IUserService;
+import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
 public class UserServiceImpl implements IUserService {
+
     UserDao userDao = new UserDao();
 
 
@@ -32,5 +36,11 @@ public class UserServiceImpl implements IUserService {
     public void deleteUser(int id) {
         userDao.deleteUser(id);
     }
+
+    @Override
+    public List<User> findAll() {
+        return userDao.findAll();
+    }
+
 
 }

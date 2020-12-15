@@ -1,12 +1,14 @@
 package example.pc.service.serviceImpl;
 
 import example.pc.dto.CommentSearchInfo;
-import example.pc.dao.CommentDao;
+import example.pc.dao.impl.CommentDao;
 import example.pc.entity.Comment;
 import example.pc.entity.Page;
 import example.pc.service.ICommentService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CommentServiceImpl implements ICommentService {
     CommentDao commentDao = new CommentDao();
@@ -43,8 +45,10 @@ public class CommentServiceImpl implements ICommentService {
 
     @Override
     public List<Comment> getSearchCommentsByPage(CommentSearchInfo searchInfo, Page page) {
-        List<Comment> list = commentDao.getSearchComments(searchInfo, page);
-
+        Map map = new HashMap();
+        map.put("commentSearchInfo",searchInfo);
+        map.put("page",page);
+        List<Comment> list = commentDao.getSearchComments(map);
         return list;
     }
 

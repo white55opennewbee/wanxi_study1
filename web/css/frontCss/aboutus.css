@@ -1,0 +1,39 @@
+.bg{
+    position: relative;
+    top: -30px;
+    margin: 0 auto;
+    z-index: -1;
+    background-image: url("../../img/ziye_8vqz.jpg");
+    height: 160px;
+    width: 1920px;
+}
+
+.info{
+    width: 1000px;
+    height: auto;
+}
+body > div {
+    width: 100%;
+    height: 130px
+}
+
+.bg > div {
+    position: relative;
+    top: 20%;
+    left: 75%
+}
+
+.bg > div > span {
+    font-size: 25px;
+    color: white;
+}
+
+.qwer {
+    position: relative;
+    padding-top: 20px;
+    padding-left: 20%;
+}
+
+.qwer > span:first-child {
+    color: #0accce
+}

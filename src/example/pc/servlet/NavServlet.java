@@ -18,7 +18,6 @@ public class NavServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Map map = new HashMap();
-
         INavService navService = new NavServiceImpl();
         CompanyServiceImpl companyService = new CompanyServiceImpl();
         map.put("navList", navService.getNavs());

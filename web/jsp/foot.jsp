@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../css/foot.css">
+    <link rel="stylesheet" href="../css/frontCss/foot.css">
     <meta charset="UTF-8">
     <title>foot</title>
 </head>

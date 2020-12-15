@@ -8,7 +8,7 @@ function init(data) {
     for (var i = 0; i < data.length; i++) {
         production += "<div>\n" +
             "                    <div>" + data[i].id + "</div>\n" +
-            ""+path+"                    <div><img  src=\"/img\"></div>\n" + data[i].productionImgUrl + "" +
+            ""+path+"                    <div><img  src=\"/img/"+data[i].productionImgUrl+"\"></div>\n" +
             "                    <div>" + data[i].productionName + "</div>\n" +
             "                    <div>" + data[i].type + "</div>\n" +
             "                    <div>" + data[i].price + "</div>\n" +

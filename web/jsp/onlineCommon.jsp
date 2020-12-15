@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../css/aboutus.css">
+    <link rel="stylesheet" href="../css/frontCss/aboutus.css">
     <meta charset="UTF-8">
     <title>在线留言</title>
 </head>

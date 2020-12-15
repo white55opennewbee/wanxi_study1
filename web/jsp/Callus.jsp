@@ -10,7 +10,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
     <meta name="keywords" content="百度地图,百度地图API，百度地图自定义工具，百度地图所见即所得工具" />
     <meta name="description" content="百度地图API自定义地图，帮助用户在可视化操作下生成百度地图" />
-    <link rel="stylesheet" href="../css/aboutus.css">
+    <link rel="stylesheet" href="../css/frontCss/aboutus.css">
     <title>百度地图API自定义地图</title>
     <!--引用百度地图API-->
     <style type="text/css">

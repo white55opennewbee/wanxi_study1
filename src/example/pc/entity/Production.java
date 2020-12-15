@@ -25,7 +25,7 @@ public class Production extends BaseModel{
 
     public void setProductionImgUrl(String productionImgUrl) {
         this.productionImgUrl = productionImgUrl;
-    }
+    }//
 
     public String getPrice() {
         return price;

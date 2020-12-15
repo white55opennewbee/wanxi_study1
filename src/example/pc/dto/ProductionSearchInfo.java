@@ -4,7 +4,7 @@ public class ProductionSearchInfo {
     private String searchByName;
     private String lowestPrice;
     private String maxPrice;
-    private String selection;
+    private String selection = null;
 
     public String getSearchByName() {
         return searchByName;

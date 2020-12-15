@@ -1,0 +1,20 @@
+.fixed{
+    width: 2000px;
+    height: 100px;
+    background-color: #333333;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+#companyName{
+    position:relative;top: 40%;padding-left:20%;color: rgb(169, 169, 171); font-size: 26px; font-family: Microsoft YaHei; line-height: 122%;
+
+}
+#companySymbol{
+    position:relative;top:40%;padding-left:20%;font-size: 16px; line-height: 122%; color: rgb(169, 169, 171);
+}
+#footImgs{
+    position: relative;left: 70%;bottom: 30%
+}

@@ -1,5 +1,4 @@
 function getImg(object) {
-    console.log(1111)
     $(object).attr("src","/img?time="+new Date());
 }
 
@@ -36,7 +35,7 @@ function login() {
         success:function (data) {
             if (data){
                 console.log(data)
-                window.location.href = "managerindex.html";
+                window.location.href = "../managerindex.html";
             } else {
                 console.log(data)
                 alert("账户或密码错误");

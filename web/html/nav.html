@@ -3,52 +3,10 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<style type="text/css">
-			*{
-				margin:0;
-				padding:0;
-			}
-			a{
-				text-decoration: none;
-			}
-			li{
-				list-style: none;
-			}
-			img{
-				border: none;
-			}
-			body{
-				position: relative;
-                height: 130px;
-			}
-			nav{
-				height: 122px;
-			}
-			ul{
-				text-align: center;
-				line-height: 122px;
-				position: absolute;
-				left: 700px;
-			}
-			li{
-				float: left;
-				margin-right: 70px;
-			}
-			ul li a{
-				color: gray;
-			}
-			ul li a:hover{
-				color: aqua;
-			}
-			.logo img{
-				float: left;
-				position: absolute;
-                width: 200px;
-				left: 350px;
-				z-index: 1;
-			}
-		</style>
+
 		<script src="../js/jquery.min.js"></script>
+		<script src="../js/front/JS/nav.js"></script>
+		<link rel="stylesheet" href="../css/frontCss/nav.css">
 	</head>
 	<body>
 		<header>
@@ -56,10 +14,10 @@
 			<nav>
 				<div class="logo">
                     <img id="companyImg" src="../img/logo_02_lftn.png" >
-                    <p id="companyName" style="position: absolute;left: 370px;padding-top:20px;z-index: 2;color: rgb(255, 255, 255); font-size: 22px; font-family: Microsoft YaHei; line-height: 122%;">
+                    <p id="companyName">
 
                     </p>
-                    <p id="companySymbol" style="position: absolute;left: 355px;padding-top:50px;z-index: 2;color: rgb(93, 106, 127); text-transform: uppercase; line-height: 100%; font-family: Times New Roman;">
+                    <p id="companySymbol">
 
                     </p>
 				</div>
@@ -75,32 +33,32 @@
             </div>
 		</header>
 	</body>
-<script>
-	$.ajax({
-		url:"/nav",
-		method:"get",
-		success:function (result) {
-			// result = JSON.parse(result)
-			console.log(result)
-			initNav(result.navList)
-			initCompany(result.companyLogo)
-		}
+<!--<script>-->
+<!--	$.ajax({-->
+<!--		url:"/nav",-->
+<!--		method:"get",-->
+<!--		success:function (result) {-->
+<!--			// result = JSON.parse(result)-->
+<!--			console.log(result)-->
+<!--			initNav(result.navList)-->
+<!--			initCompany(result.companyLogo)-->
+<!--		}-->
 
-	})
+<!--	})-->
 
-	function initCompany(companyData) {
-		$("#companyName").html(companyData.companyName)
-		$("#companySymbol").html(companyData.symbol)
-		$("#companyImg").attr("src","../"+companyData.imgUrl)
+<!--	function initCompany(companyData) {-->
+<!--		$("#companyName").html(companyData.companyName)-->
+<!--		$("#companySymbol").html(companyData.symbol)-->
+<!--		$("#companyImg").attr("src","../img/"+companyData.imgUrl)-->
 
-	}
+<!--	}-->
 
-	function initNav(data){
-		let ps = ""
-		for (let i= 0;i<data.length;i++){
-			ps += "<li><a href=\""+data[i].href+"\" title=\""+data[i].title+"\" target=\"_blank\">"+data[i].describe+"</a></li>"
-		}
-		$("#navHeader").html(ps)
-	}
-</script>
+<!--	function initNav(data){-->
+<!--		let ps = ""-->
+<!--		for (let i= 0;i<data.length;i++){-->
+<!--			ps += "<li><a href=\""+data[i].href+"\" title=\""+data[i].title+"\" target=\"_blank\">"+data[i].describe+"</a></li>"-->
+<!--		}-->
+<!--		$("#navHeader").html(ps)-->
+<!--	}-->
+<!--</script>-->
 </html>
