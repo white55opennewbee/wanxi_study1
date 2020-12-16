@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+<mapper namespace="example.pc.dao.INewsMapper">
+        <sql id="newsParams">
+                title,body,newsType,date,toTop
+        </sql>
+
+        <select id="getAllNews" resultType="example.pc.entity.News">
+                select  * from news where status = 1
+        </select>
+
+        <select id="getNewsPages" resultType="int">
+                select count(*) from news where status = 1
+        </select>
+
+        <select id="getNewsByPage" resultType="example.pc.entity.News" parameterType="Page">
+                select * from news where status = 1 limit ${(currentPage-1)*maxsize} , ${maxsize}
+
+        </select>
+
+        <select id="getNewsById" resultType="example.pc.entity.News" parameterType="integer">
+                select * from news where status =1 and id = #{id}
+        </select>
+
+        <update id="updateNews" parameterType="News">
+                update news set title = #{title} and
+                body = #{body} and
+                newsType = #{body} and
+                date = #{date} and
+                toTop  = #{toTop} where
+                id = #{id}
+        </update>
+
+        <insert id="addNews">
+                insert into news (<include refid="newsParams"/>) values (#{title},#{body},#{newsType},#{date},#{toTop})
+        </insert>
+
+        <delete id="deleteById" parameterType="integer">
+                update news set status = 0 where id = #{id}
+        </delete>
+
+        <select id="findNewsBySearch" resultType="example.pc.entity.News" parameterType="map">
+                select * from news where status = 1
+                <if test="newsSearchInfo.newsTitle!=null and newsSearchInfo.newsTitle!=''">
+                        and title like concat('%',#{newsSearchInfo.newsTitle},'%')
+                </if>
+                <if test="newsSearchInfo.newsType!=null and newsSearchInfo.newsType!='' and newsSearchInfo.newsType!='全部'">
+                        and newsType  = #{newsSearchInfo.newsType}
+                </if>
+                <if test="newsSearchInfo.startTime!=null and newsSearchInfo.startTime!=''">
+                        and date &gt;= #{newsSearchInfo.startTime}
+                </if>
+                <if test="newsSearchInfo.endTime!=null and newsSearchInfo.endTime!=''">
+                        and date &lt;= #{newsSearchInfo.endTime}
+                </if>
+                limit ${(page.currentPage-1)*page.maxsize} , ${page.maxsize}
+        </select>
+
+        <select id="findNewsCountBySearch" resultType="int" parameterType="example.pc.dto.NewsSearchInfo">
+                select count(*) from news where status = 1
+                <if test="newsTitle!=null and newsTitle!=''">
+                        and title like concat('%',#{newsTitle},'%')
+                </if>
+                <if test="newsType!=null and newsType!='' and newsType!='全部'">
+                        and newsType = #{newsType}
+                </if>
+                <if test="startTime!=null and startTime!=''">
+                        and date &gt;= #{startTime}
+                </if>
+                <if test="endTime!=null and endTime!=''">
+                        and date &lt;= #{endTime}
+                </if>
+        </select>
+
+        <update id="setNewsToTop" parameterType="News">
+                update news
+                <choose>
+                        <when  test="toTop != null and toTop == 0">
+                                set toTop = 1
+                        </when>
+                        <otherwise>
+                                set toTop = 0
+                        </otherwise>
+                </choose>
+                where id = #{id}
+        </update>
+
+        <select id="getToTopNews" resultType="News">
+                select * from news where status = 1 and toTop = 1
+        </select>
+</mapper>

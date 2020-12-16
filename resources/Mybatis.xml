@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "mybatis-3-config.dtd">
+<configuration>
+    <!-- 连接数据库的资源文件-->
+    <properties resource="/properties/jdbc_property.properties"></properties>
+    <!-- 数据库的配置-->
+    <settings>
+        <!-- 控制台打印sql语句 -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <typeAliases>
+        <typeAlias alias="User" type="example.pc.entity.User"/>
+        <typeAlias alias="Production" type="example.pc.entity.Production"/>
+        <typeAlias alias="Equipment" type="example.pc.entity.Equipment"/>
+        <typeAlias alias="News" type="example.pc.entity.News"/>
+        <typeAlias alias="Comment" type="example.pc.entity.Comment"/>
+        <typeAlias alias="Company" type="example.pc.entity.Company"/>
+        <typeAlias alias="CompanyAdvance" type="example.pc.entity.CompanyAdvance"/>
+        <typeAlias alias="FootLogo" type="example.pc.entity.FootLogo"/>
+        <typeAlias alias="Nav" type="example.pc.entity.Nav"/>
+        <typeAlias alias="Page" type="example.pc.entity.Page"/>
+    </typeAliases>
+<!--    生产环境下-->
+    <environments default="development">
+        <environment id="development">
+            <!-- 直接简单使用了JDBC的提交和回滚设置。它依赖于从数据源得到的连接来管理事务范围-->
+            <transactionManager type="JDBC"/>
+            <!-- POOLED是JDBC链接数据库的数据连接池 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${user}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- 把newsMapper.xml注册到mybatis的配置文件中，newsMapper.xml下面配置 -->
+    <mappers>
+        <!-- <mapper resource="/mapper/companyMapper.xml"/>-->
+        <mapper resource="mapper/userMapper.xml"/>
+        <mapper resource="mapper/productionMapper.xml"/>
+        <mapper resource="mapper/commentMapper.xml"/>
+        <mapper resource="mapper/productionTypesMapper.xml"/>
+        <mapper resource="mapper/companyAdviceMapper.xml"/>
+        <mapper resource="mapper/footMapper.xml"/>
+        <mapper resource="mapper/companyMapper.xml"/>
+        <mapper resource="mapper/navMapper.xml"/>
+        <mapper resource="mapper/newsMapper.xml"/>
+        <mapper resource="mapper/newsTypesMapper.xml"/>
+        <mapper resource="mapper/equipmentMapper.xml"/>
+    </mappers>
+
+
+
+</configuration>

@@ -1,0 +1,138 @@
+body > div > div:first-child {
+    width: 100%;
+    height: 130px;
+}
+
+.bg {
+    position: relative;
+    top: -30px;
+    margin: 0 auto;
+    z-index: -1;
+    background-image: url("../../img/ziye_8vqz.jpg");
+    height: 160px;
+    width: 1920px;
+}
+
+.bg > div {
+    position: relative;
+    top: 20%;
+    left: 75%
+}
+
+.bg > div > span {
+    font-size: 25px;
+    color: white;
+}
+
+.qwer {
+    position: relative;
+    padding-top: 20px;
+    padding-left: 20%;
+}
+
+.qwer > span:first-child {
+    color: #0accce
+}
+
+.show {
+    margin: 0px auto;
+    width: 1100px;
+    height: auto
+}
+
+.show > div:first-child > p {
+    font-family: 'Microsoft YaHei';
+    font-size: 20px;
+    color: rgb(102, 102, 102);
+    line-height: 200%;
+}
+
+.show > div:last-child {
+    margin-top: 50px
+}
+
+.show > div:last-child > div > div {
+    float: bottom;
+    width: 260px;
+    height: 34px;
+    line-height: 34px;
+    background-color: transparent;
+    background-image: none;
+    font-size: 20px;
+    color: #00dcd9;
+    text-align: left;
+    word-spacing: 0px;
+    padding: 0px;
+    font-family: Microsoft YaHei;
+    border: 2px;
+    border-color: transparent;
+    border-style: none;
+    clear: both;
+    margin-top: 8px;
+    margin-left: 0px;
+}
+
+.show > div:last-child > div > input {
+    float: bottom;
+    width: 700px;
+    height: 24px;
+    line-height: 24px;
+    background-color: transparent;
+    background-image: none;
+    font-size: 14px;
+    color: #777777;
+    text-align: left;
+    word-spacing: 0px;
+    padding: 4px;
+    font-family: Microsoft YaHei;
+    border: 1px;
+    border-color: #00dcd9;
+    border-style: solid;
+    clear: both;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.show > div:last-child > div > textarea {
+    float: bottom;
+    resize: none;
+    width: 700px;
+    height: 122px;
+    line-height: 24px;
+    background-color: transparent;
+    background-image: none;
+    font-size: 14px;
+    color: #777777;
+    text-align: left;
+    word-spacing: 0px;
+    padding: 4px;
+    font-family: Microsoft YaHei;
+    border: 1px;
+    border-color: #00dcd9;
+    border-style: solid;
+    clear: both;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.sub_message {
+    float: bottom;
+    cursor: pointer;
+    width: 710px;
+    height: 28px;
+    line-height: 28px;
+    background-color: #00dcd9;
+    background-image: none;
+    font-size: 14px;
+    color: #FFFFFF;
+    text-align: center;
+    word-spacing: 0px;
+    padding: 0px;
+    font-family: Microsoft YaHei;
+    border: 1px;
+    border-color: #00dcd9;
+    border-style: dashed;
+    clear: both;
+    margin-top: 20px;
+    margin-left: 0px;
+}

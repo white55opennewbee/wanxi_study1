@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+<mapper namespace="example.pc.dao.ICompanyAdviceMapper">
+    <select id="getAllShowableCompanyAdvice" resultType="example.pc.entity.CompanyAdvance">
+        select * from company_advice where status =1
+    </select>
+</mapper>

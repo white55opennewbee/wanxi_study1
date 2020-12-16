@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+<mapper namespace="example.pc.dao.IUserMapper">
+    <resultMap id="user" type="example.pc.entity.User"></resultMap>
+    <select id="checkUser" resultMap="user" parameterType="example.pc.entity.User">
+        select * from user where account = #{account} and password = #{password};
+    </select>
+    <select id="findAll" resultType="example.pc.entity.User">
+        select * from user;
+    </select>
+    <insert id="addUser" flushCache="true" parameterType="User" keyColumn="id">
+        insert into user (account,password,name,phoneNum) values (#{account},#{password},#{name},#{phoneNum})
+    </insert>
+
+
+
+</mapper>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+<mapper namespace="example.pc.dao.IProductionMapper">
+    <sql id="all">
+        productionName,productionImgUrl,price,type,number,exportPlace,incountryPlace,tradeTime
+    </sql>
+
+    <select id="getAllShowableProductions" resultType="example.pc.entity.Production">
+        select * from production
+    </select>
+
+    <update id="updateProduction" flushCache="true" parameterType="Production">
+        update production set
+        productionName = #{productionName} AND
+        productionImgUrl = #{productionName} AND
+        price = #{price} AND
+        type = #{type} AND
+        number = #{number} AND
+        exportPlace = #{exportPlace} AND
+        incountryPlace = #{incountryPlace} AND
+        tradeTime = #{tradeTime}
+        where id = #{id}
+    </update>
+
+    <update id="delete">
+        update production set status = 0 where id = #{id}
+    </update>
+
+    <insert id="addProduction" parameterType="Production" keyColumn="id">
+        insert into production (<include refid="all"></include>)  values (#{productionName},#{productionImgUrl},#{price},#{type},#{number},#{exportPlace},#{incountryPlace},#{tradeTime})
+    </insert>
+
+    <select id="getShowableProductionByPage" resultType="example.pc.entity.Production" parameterType="Page">
+            select * from production limit ${(currentPage-1)*maxsize} , #{maxsize}
+    </select>
+
+    <select id="getSingleProductions" resultType="example.pc.entity.Production">
+        select * from production where id = #{id}
+
+    </select>
+
+    <select id="findProdcutionCountBySearch" resultType="java.lang.Integer">
+        select count(*) from production where status = 1
+        <if test="productionSearchInfo.searchByName!=null and productionSearchInfo.searchByName!=''">
+            and productionName like concat('%',#{productionSearchInfo.searchByName},'%')
+        </if>
+        <if test="productionSearchInfo.lowestPrice!=null and productionSearchInfo.lowestPrice!=''">
+            and price &gt;= #{productionSearchInfo.lowestPrice}
+        </if>
+        <if test="productionSearchInfo.maxPrice!=null and productionSearchInfo.maxPrice!=''">
+            and price &lt;= #{productionSearchInfo.maxPrice}
+        </if>
+        <if test="productionSearchInfo.selection!=null and productionSearchInfo.selection!='' and productionSearchInfo.selection!='全部'">
+            and type = #{productionSearchInfo.selection}
+        </if>
+
+    </select>
+
+    <select id="getProductionNums" resultType="int">
+        select  count(*) from production where  status = 1;
+    </select>
+
+    <select id="findProductionBySearch" resultType="Production" parameterType="java.util.Map">
+        select * from production where status = 1
+        <if test="productionSearchInfo.searchByName!=null and productionSearchInfo.searchByName!=''">
+            and productionName like concat('%',#{productionSearchInfo.searchByName},'%')
+        </if>
+        <if test="productionSearchInfo.lowestPrice!=null and productionSearchInfo.lowestPrice!=''">
+            and price &gt;= #{productionSearchInfo.lowestPrice}
+        </if>
+        <if test="productionSearchInfo.maxPrice!=null and productionSearchInfo.maxPrice!=''">
+            and price &lt;= #{productionSearchInfo.maxPrice}
+        </if>
+        <if test="productionSearchInfo.selection!=null and  productionSearchInfo.selection!='' and productionSearchInfo.selection!='全部'">
+            and type = #{productionSearchInfo.selection}
+        </if>
+        limit ${(page.currentPage-1)*page.maxsize} , ${page.maxsize}
+
+    </select>
+    <!--    <resultMap id="production" type="Production">-->
+    <!--    </resultMap>-->
+</mapper>

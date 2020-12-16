@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+<mapper namespace="example.pc.dao.ICommentMapper">
+
+    <select id="getAllShowableCommons" resultType="example.pc.entity.Comment">
+        select * from comment where status = 1
+
+    </select>
+
+    <select id="getAllShowableCommonsByPage" resultType="example.pc.entity.Comment" parameterType="Page">
+        select * from comment where status = 1 limit ${(currentPage-1)*maxsize},${maxsize}
+    </select>
+
+    <select id="getAllCommons" resultType="example.pc.entity.Comment">
+        select * from comment
+
+    </select>
+
+    <insert id="addComment" parameterType="Comment" keyProperty="id" useGeneratedKeys="true">
+        insert into comment (commonUsername,userEmail,userCommon,commonTime) values (#{commonUsername},#{userEmail},#{userCommon},#{commonTime})
+    </insert>
+
+    <update id="updateComment" parameterType="Comment">
+        update comment set
+        commonUsername = #{commonUsername} and
+        userEmail = #{userEmail} and
+        userCommon = #{userCommon} and
+        commonTime = #{commonTime} where
+        id = #{id}
+    </update>
+
+    <delete id="deleteComment" parameterType="Comment">
+        update comment set status = 0 where id = #{id}
+    </delete>
+
+    <select id="getPages" resultType="int">
+        select count(*) from comment
+
+    </select>
+
+    <select id="getSearchComments" resultType="Comment" parameterType="map">
+            select * from comment where status = 1
+        <if test="commentSearchInfo.name!=null and commentSearchInfo.name!=''">
+            and commonUsername like concat("%",#{commentSearchInfo.name},"%")
+        </if>
+        <if test="commentSearchInfo.startTime!=null and commentSearchInfo.startTime!=''">
+            and commonTime &gt;= #{commentSearchInfo.startTime}
+        </if>
+        <if test="commentSearchInfo.endTime!=null and commentSearchInfo.endTime!=''">
+            and commonTime &lt;= #{commentSearchInfo.endTime}
+        </if>
+        limit ${(page.currentPage-1)*page.maxsize} , ${page.maxsize}
+
+    </select>
+
+    <select id="getPagesCountBySearch" resultType="int" parameterType="example.pc.dto.CommentSearchInfo">
+        select count(*) from comment where status = 1
+        <if test="name!=null and name!=''">
+            and commonUsername like concat("%",#{name},"%")
+        </if>
+        <if test="startTime!=null and startTime!=''">
+            and commonTime &gt;= #{startTime}
+        </if>
+        <if test="endTime!=null and endTime!=''">
+            and commonTime &lt;= #{endTime}
+        </if>
+    </select>
+</mapper>
